@@ -1,0 +1,19 @@
+/* Error: 2 arguments required, but only 1 was passed.
+ *    ,
+ * 19 |   --container-width: #{rem(1260)};
+ *    |                        ^^^^^^^^^
+ *    '
+ *   styles\helpers\_variables.scss 19:24  @forward
+ *   styles\helpers\_index.scss 1:1        @use
+ *   styles\main.scss 1:1                  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: 2 arguments required, but only 1 was passed.\a    \2577 \a 19 \2502    --container-width: #{rem(1260)};\d\a    \2502                         ^^^^^^^^^\a    \2575 \a   styles\\helpers\\_variables.scss 19:24  @forward\a   styles\\helpers\\_index.scss 1:1        @use\a   styles\\main.scss 1:1                  root stylesheet";
+}
