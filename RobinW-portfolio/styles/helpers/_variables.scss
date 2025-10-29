@@ -1,34 +1,66 @@
+// ================================
+// 🎨  DESIGN TOKENS (Root Variables)
+// ================================
+// Глобальные переменные проекта Robin.W:
+// • Цветовая палитра
+// • Типографика
+// • Размеры контейнера
+// • Транзишны и адаптивные точки
+// ================================
+
 @use 'functions' as *;
 @use 'media' as *;
 
 
 :root {
+  // 🎨 Цветовая палитра проекта
   --color-light: #FFFFFF;
   --color-dark: #000000;
   --color-dark-light: #181823;
   --color-dark-grey: #5B6876;
   --color-light-gray: #8491A0;
 
-
+  /* Акцентные */
   --color-peach-accent: #FFF3E4;
   --color-violet-accent: #FBE4FF;
   --color-green-accent: #3CC74E;
   --color-blue-accent: #609BFF;
 
+  /* Кнопки и фоны */
   --button-purple: #5221E6;
 
-
+  /* 🅰️ Шрифты */
   --font-family: 'Sen', sans-serif;
 
-  --container-width: #{rem(1260)};
-  --container-padding-x: #{rem(20)};
+  /* 📦 Контейнер */
+  --container-width: #{rem(1296)}; /* контентная ширина макета (1440 - 2×72px) */
+  --container-padding-x: #{rem(72)}; /* внутренние отступы по бокам */
 
+  /* ⚡ Анимации */
   --transition-duration:0.2s;
 
-  @include laptop {
-    --container-width: #{rem(1260)};
+}
+
+/* 💻 Laptop (≤ 1440px) */
+@include laptop {
+  :root {
+    --container-width: #{rem(1100)};
+    --container-padding-x: #{rem(40)};
   }
-;
+}
 
+/* 📱 Tablet (≤ 768px) */
+@include tablet {
+  :root {
+    --container-width: #{rem(700)};
+    --container-padding-x: #{rem(24)};
+  }
+}
 
+/* 📲 Mobile (≤ 360px) */
+@include mobile {
+  :root {
+    --container-width: 100%;
+    --container-padding-x: #{rem(16)};
+  }
 }

@@ -1,3 +1,6 @@
 @use 'base/index' as *;
 @use 'helpers/index' as *;
 
+.a {
+  font-size: rem(50);
+}

@@ -40,6 +40,11 @@ $mobile: 360.98;
   }
 }
 
+
+// @mixin hover($hasActiveEffectOnMobile: true)
+// Используется для адаптивных hover-эффектов.
+// На десктопе — :hover, на мобильных — :active (если $hasActiveEffectOnMobile = true)
+
 @mixin hover($hasActiveEffectOnMobile: true) {
   @media(any-hover: hover) {
     &:hover {
