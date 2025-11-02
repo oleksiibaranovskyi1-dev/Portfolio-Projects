@@ -12,7 +12,7 @@
 
 // Подключаем math и собственные функции (rem(), fluid(), и т.д.)
 @use 'sass:math';
-@use 'functions' as *;
+@use '../helpers/functions' as *;
 
 
 // 🌊 fluid-text($max, $min)

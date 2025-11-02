@@ -1,4 +1,47 @@
 @charset "UTF-8";
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
+  --color-dark-light: #181823;
+  --color-dark-grey: #5B6876;
+  --color-light-gray: #8491A0;
+  /* Акцентные */
+  --color-peach-accent: #FFF3E4;
+  --color-violet-accent: #FBE4FF;
+  --color-green-accent: #3CC74E;
+  --color-blue-accent: #609BFF;
+  /* Кнопки и фоны */
+  --button-purple: #5221E6;
+  /* 🅰️ Шрифты */
+  --font-family: "Sen", sans-serif;
+  /* 📦 Контейнер */
+  --container-width: 81rem; /* контентная ширина макета (1440 - 2×72px) */
+  --container-padding-x: 4.5rem; /* внутренние отступы по бокам */
+  /* ⚡ Анимации */
+  --transition-duration:0.2s;
+}
+
+/* 💻 Laptop (≤ 1440px) */
+@media (width <= 90.06125rem) {
+  :root {
+    --container-width: 68.75rem;
+    --container-padding-x: 2.5rem;
+  }
+}
+/* 📱 Tablet (≤ 768px) */
+@media (width <= 48.06125rem) {
+  :root {
+    --container-width: 43.75rem;
+    --container-padding-x: 1.5rem;
+  }
+}
+/* 📲 Mobile (≤ 360px) */
+@media (width <= 22.56125rem) {
+  :root {
+    --container-width: 100%;
+    --container-padding-x: 1rem;
+  }
+}
 /* 🔲 Нормализация блочной модели */
 *,
 ::before,
@@ -131,60 +174,17 @@ svg * {
 }
 @font-face {
   font-family: "Sen";
-  src: url("../fonts/Sen-Regular.woff2") format("woff2");
+  src: url("../../fonts/Sen-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Sen";
-  src: url("../fonts/Sen-Bold.woff2") format("woff2");
+  src: url("../../fonts/Sen-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-:root {
-  --color-light: #FFFFFF;
-  --color-dark: #000000;
-  --color-dark-light: #181823;
-  --color-dark-grey: #5B6876;
-  --color-light-gray: #8491A0;
-  /* Акцентные */
-  --color-peach-accent: #FFF3E4;
-  --color-violet-accent: #FBE4FF;
-  --color-green-accent: #3CC74E;
-  --color-blue-accent: #609BFF;
-  /* Кнопки и фоны */
-  --button-purple: #5221E6;
-  /* 🅰️ Шрифты */
-  --font-family: "Sen", sans-serif;
-  /* 📦 Контейнер */
-  --container-width: 81rem; /* контентная ширина макета (1440 - 2×72px) */
-  --container-padding-x: 4.5rem; /* внутренние отступы по бокам */
-  /* ⚡ Анимации */
-  --transition-duration:0.2s;
-}
-
-/* 💻 Laptop (≤ 1440px) */
-@media (width <= 90.06125rem) {
-  :root {
-    --container-width: 68.75rem;
-    --container-padding-x: 2.5rem;
-  }
-}
-/* 📱 Tablet (≤ 768px) */
-@media (width <= 48.06125rem) {
-  :root {
-    --container-width: 43.75rem;
-    --container-padding-x: 1.5rem;
-  }
-}
-/* 📲 Mobile (≤ 360px) */
-@media (width <= 22.56125rem) {
-  :root {
-    --container-width: 100%;
-    --container-padding-x: 1rem;
-  }
 }
 body {
   font-size: clamp(1rem, 0.9567307692rem + 0.1923076923vw, 1.125rem);
@@ -321,8 +321,63 @@ a::after {
   }
 }
 
-.a {
-  font-size: 3.125rem;
+.header__promo {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-inline: 70px;
+  height: 84px;
+  align-content: center;
+  background-color: transparent;
+}
+.header__promo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .nav__list {
+  display: flex;
+  column-gap: 48px;
+}
+.header .nav__item {
+  color: var(--color-light);
+}
+.header__body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 87.5rem;
+  width: 100%;
+  padding: 5.125rem 2.5rem 5.25rem 0rem;
+}
+.header__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.header__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.header__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  max-width: 45.625rem;
+  z-index: 2;
+  margin-left: auto;
+}
+.header__title-text {
+  color: rgba(255, 255, 255, 0.5);
+}
+.header__text {
+  color: var(--color-light);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,92 @@
+// ============================================
+// 🔷 HEADER BLOCK
+// --------------------------------------------
+// Блок шапки сайта. Состоит из двух зон:
+// 1️⃣ header__promo — верхняя навигация (фиксированная)
+// 2️⃣ header__body — hero-секция с фото и текстом
+// ============================================
+@use '../helpers/index' as *;
+
+
+.header {
+
+
+  &__promo {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-inline: 70px;
+    height: 84px;
+    align-content: center;
+    background-color: transparent;
+
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+  }
+
+  .nav {
+
+
+    &__list {
+      display: flex;
+      column-gap: 48px;
+    }
+
+    &__item {
+      color: var(--color-light);
+
+
+    }
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: rem(1400);
+    width: 100%;
+    padding: rem(82) rem(40) rem(84) rem(0);
+
+  }
+
+  &__image {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(32);
+    max-width: rem(730);
+    z-index: 2;
+    margin-left: auto;
+
+  }
+
+  &__title-text {
+    color: rgba(255, 255, 255, 0.50);
+  }
+
+  &__text {
+    color: var(--color-light);
+    font-size: rem(18);
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+}

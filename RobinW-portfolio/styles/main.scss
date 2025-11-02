@@ -1,6 +1,3 @@
-@use 'base/index' as *;
-@use 'helpers/index' as *;
-
-.a {
-  font-size: rem(50);
-}
+@use './helpers/index' as *;
+@use './base/index' as *;
+@use './blocks/index' as *;
