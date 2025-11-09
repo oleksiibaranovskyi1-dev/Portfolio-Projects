@@ -63,10 +63,10 @@ select
 
 
 // 🔗 Ссылки с hover-анимацией
-a {
+.link-underline {
+  position: relative;
   color: inherit;
   text-decoration: none;
-  position: relative;
   @include transition(color);
 
   &::after {
@@ -77,14 +77,14 @@ a {
     width: 100%;
     height: 1px;
     background-color: currentColor;
-    transform: translateX(-50%) scaleX(1); // линия по центру, 100%
+    transform: translateX(-50%) scaleX(0); /* 🔹 по умолчанию — невидимая */
     transform-origin: center;
     transition: transform var(--transition-duration) ease;
   }
 
   @include hover {
     &::after {
-      transform: translateX(-50%) scaleX(0.75); // слегка сжимается к центру
+      transform: translateX(-50%) scaleX(1); /* 🔹 появляется при наведении */
     }
   }
 }

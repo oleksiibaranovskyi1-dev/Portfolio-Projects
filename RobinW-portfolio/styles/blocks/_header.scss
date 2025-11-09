@@ -10,26 +10,138 @@
 
 .header {
 
+  background: linear-gradient(
+      to right,
+      var(--color-dark) 0 34%, /* левая половина — чёрная */
+      var(--color-dark-light) 25% 100% /* правая половина — серая */
+  );
+  height: rem(720);
+  @include laptop {
+    background: transparent;
+    height: auto;
+  }
+
+  @include mobile {
+    position: relative;
+    z-index: 1;
+  }
+
+
+
 
   &__promo {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding-inline: 70px;
-    height: 84px;
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    transition: var(--transition-duration);
+    padding-inline: rem(70);
+    height: rem(84);
+    align-items: center;
     background-color: transparent;
+    @include mobile {
+      padding: rem(20) rem(24);
+    }
+
 
     &-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
+
     }
 
+    &--scrolled {
+      background-color: var(--color-dark);
+
+    }
+
+    .burger {
+      position: relative;
+      width: rem(24);
+      height: rem(18);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 1001;
+      padding: 0;
+
+      &__line {
+        height: 2px;
+        background-color: var(--color-light);
+        border-radius: 1px;
+        transition: transform 0.3s ease, width 0.3s ease;
+        transform-origin: center;
+
+        &--top {
+          width: rem(18);
+        }
+
+        &--bottom {
+          width: rem(13);
+        }
+      }
+
+      &.is-active {
+        .burger__line--top {
+          transform: rotate(45deg) translateY(11px);
+          width: rem(18);
+        }
+
+        .burger__line--bottom {
+          transform: rotate(-45deg) translateY(-11px);
+          width: rem(18);
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+    transform: translateY(100%);
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(24);
+    z-index: 1000;
+
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+
+    &.is-open {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__list {
+      list-style: none;
+      text-align: center;
+
+      li {
+        margin-bottom: rem(16);
+
+        a {
+          color: var(--color-light);
+          font-size: rem(24);
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--color-accent);
+          }
+        }
+      }
+    }
   }
 
   .nav {
-
 
     &__list {
       display: flex;
@@ -37,47 +149,116 @@
     }
 
     &__item {
+      display: flex;
+      align-items: center;
       color: var(--color-light);
+      height: 84px;
 
 
     }
+
+
   }
 
+  &__body-container {
+    max-width: rem(1440);
+    margin: 0 auto;
+
+  }
   &__body {
-    position: relative;
     display: flex;
     align-items: center;
-    max-width: rem(1400);
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
     width: 100%;
+    height: rem(650);
     padding: rem(82) rem(40) rem(84) rem(0);
+*/
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(48);
 
+    }
   }
 
   &__image {
-    position: absolute;
 
-    left: 0;
-    top: 0;
-    bottom: 0;
+    flex: 0 0 50%; // фиксируем ширину под половину макета
+    position: relative;
+    z-index: 1;
+    margin-left: calc(-1 * var(--container-padding-x));
+    @include mobile {
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
+
+    &-robin {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+
+      @include laptop {
+        height: rem(650);
+        width: 100%;
+        margin-left: calc(-1 * var(--container-padding-x));
+      }
+      @include mobile {
+        height: 70%;
+        width: 100%;
+
+
+      }
+
+    }
+
+    /* position: absolute;
+     left: -1%;
+     top: 0;
+     bottom: 0;
+
+
+     img {
+       max-width: rem(750);
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+     }
+ */
   }
 
   &__content {
+    flex: 0 0 rem(738);
     position: relative;
-    display: flex;
-    flex-direction: column;
-    row-gap: rem(32);
-    max-width: rem(730);
     z-index: 2;
-    margin-left: auto;
+    margin-left: rem(-80);
+    @include laptop {
+      flex: 0 0 rem(350);
+      text-align: start;
+    }
+
+    @include mobile {
+      padding-inline: rem(20);
+      margin-left: rem(0);
+    }
 
   }
 
+  &__title {
+    margin-bottom: rem(32);
+    @include laptop {
+      @include fluid-text(56, 32);
+    }
+
+    @include mobile {
+      @include fluid-text(32, 32);
+      margin-bottom: rem(16);
+    }
+  }
   &__title-text {
     color: rgba(255, 255, 255, 0.50);
   }
@@ -87,6 +268,11 @@
     font-size: rem(18);
     font-weight: 400;
     line-height: 150%;
+
   }
 
+}
+
+.no-scroll {
+  overflow: hidden;
 }
