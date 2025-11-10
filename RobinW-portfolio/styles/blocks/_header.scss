@@ -177,14 +177,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    /* position: relative;
-    display: inline-flex;
-    align-items: center;
-    max-width: 100%;
-    width: 100%;
-    height: rem(650);
-    padding: rem(82) rem(40) rem(84) rem(0);
-*/
+
     @include mobile {
       display: flex;
       flex-direction: column;
@@ -227,19 +220,7 @@
 
     }
 
-    /* position: absolute;
-     left: -1%;
-     top: 0;
-     bottom: 0;
 
-
-     img {
-       max-width: rem(750);
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-     }
- */
   }
 
   &__content {
@@ -255,6 +236,7 @@
     @include mobile {
       padding-inline: rem(20);
       margin-left: rem(0);
+      flex: 0 0 rem(200)
     }
 
   }

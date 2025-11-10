@@ -1,0 +1,64 @@
+@use '../helpers/index' as *;
+
+.experience {
+  padding: rem(120) rem(0);
+  @include mobile {
+    padding: rem(48) rem(0);
+  }
+
+  &__header {
+    max-width: rem(695);
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(8);
+    margin-bottom: rem(40);
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+  }
+
+  &__list {
+    counter-reset: MyCounter;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(72);
+    margin: 0;
+    list-style: none;
+    @include laptop {
+      column-gap: rem(40);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      row-gap: rem(48);
+    }
+  }
+
+  &__item {
+
+    &::before {
+      content: "0" counter(MyCounter);
+      counter-increment: MyCounter;
+      font-size: rem(117);
+    }
+
+    &:nth-child(1) .experience__company {
+      color: var(--color-green-accent)
+    }
+
+    &:nth-child(2) .experience__company {
+      color: var(--color-blue-accent)
+    }
+
+    &:nth-child(3) .experience__company {
+      color: var(--color-pink-accent)
+    }
+  }
+
+  &__role {
+    margin-bottom: rem(22);
+  }
+
+
+}

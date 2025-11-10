@@ -10,6 +10,7 @@
   --color-violet-accent: #FBE4FF;
   --color-green-accent: #3CC74E;
   --color-blue-accent: #609BFF;
+  --color-pink-accent: #E91E63;
   /* Кнопки и фоны */
   --button-purple: #5221E6;
   /* 🅰️ Шрифты */
@@ -455,14 +456,6 @@ select * {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  /* position: relative;
-      display: inline-flex;
-      align-items: center;
-      max-width: 100%;
-      width: 100%;
-      height: rem(650);
-      padding: rem(82) rem(40) rem(84) rem(0);
-  */
 }
 @media (width <= 48.06125rem) {
   .header__body {
@@ -502,21 +495,6 @@ select * {
     height: 75%;
   }
 }
-.header__image {
-  /* position: absolute;
-      left: -1%;
-      top: 0;
-      bottom: 0;
-
-
-      img {
-        max-width: rem(750);
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-  */
-}
 .header__content {
   flex: 0 0 46.125rem;
   position: relative;
@@ -533,6 +511,7 @@ select * {
   .header__content {
     padding-inline: 1.25rem;
     margin-left: 0rem;
+    flex: 0 0 12.5rem;
   }
 }
 .header__title {
@@ -561,6 +540,61 @@ select * {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.experience {
+  padding: 7.5rem 0rem;
+}
+@media (width <= 48.06125rem) {
+  .experience {
+    padding: 3rem 0rem;
+  }
+}
+.experience__header {
+  max-width: 43.4375rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+.experience__subtitle {
+  text-transform: uppercase;
+}
+.experience__list {
+  counter-reset: MyCounter;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 4.5rem;
+  margin: 0;
+  list-style: none;
+}
+@media (width <= 90.06125rem) {
+  .experience__list {
+    column-gap: 2.5rem;
+  }
+}
+@media (width <= 48.06125rem) {
+  .experience__list {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+}
+.experience__item::before {
+  content: "0" counter(MyCounter);
+  counter-increment: MyCounter;
+  font-size: 7.3125rem;
+}
+.experience__item:nth-child(1) .experience__company {
+  color: var(--color-green-accent);
+}
+.experience__item:nth-child(2) .experience__company {
+  color: var(--color-blue-accent);
+}
+.experience__item:nth-child(3) .experience__company {
+  color: var(--color-pink-accent);
+}
+.experience__role {
+  margin-bottom: 1.375rem;
 }
 
 /*# sourceMappingURL=main.css.map */
