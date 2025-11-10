@@ -334,7 +334,6 @@ select * {
 @media (width <= 48.06125rem) {
   .header {
     position: relative;
-    z-index: 1;
   }
 }
 .header__promo {
@@ -349,6 +348,12 @@ select * {
 @media (width <= 48.06125rem) {
   .header__promo {
     padding: 1.25rem 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background: transparent;
   }
 }
 .header__promo-container {
@@ -472,6 +477,11 @@ select * {
   z-index: 1;
   margin-left: calc(-1 * var(--container-padding-x));
 }
+@media (width <= 90.06125rem) {
+  .header__image {
+    width: 100vw;
+  }
+}
 .header__image-robin {
   max-width: 100%;
   max-height: 100%;
@@ -486,8 +496,10 @@ select * {
 }
 @media (width <= 48.06125rem) {
   .header__image-robin {
-    height: 70%;
+    flex: 1 1 100%;
+    margin-left: 0;
     width: 100%;
+    height: 75%;
   }
 }
 .header__image {
