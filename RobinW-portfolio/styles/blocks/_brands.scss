@@ -1,0 +1,38 @@
+@use '../helpers/index' as *;
+
+.brands {
+  &__body {
+
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns:repeat(6, 1fr);
+
+    @include laptop {
+      grid-template-columns:repeat(3, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns:repeat(2, 1fr);
+    }
+
+  }
+
+  &__item {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    max-width: rem(340);
+    align-items: center;
+    min-height: rem(140);
+    border: rem(1) solid var(--color-dark-light);
+
+  }
+
+  &__image {
+    max-width: 100%;
+
+
+  }
+}

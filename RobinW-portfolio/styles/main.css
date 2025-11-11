@@ -755,4 +755,31 @@ select * {
   font-size: 1rem;
 }
 
+.brands__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+@media (width <= 90.06125rem) {
+  .brands__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (width <= 48.06125rem) {
+  .brands__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.brands__item {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  max-width: 21.25rem;
+  align-items: center;
+  min-height: 8.75rem;
+  border: 0.0625rem solid var(--color-dark-light);
+}
+.brands__image {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=main.css.map */
