@@ -684,4 +684,44 @@ select * {
   object-fit: cover;
 }
 
+.skillset {
+  padding: 7.5rem 0rem;
+}
+.skillset__body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 4.5rem;
+}
+.skillset__text {
+  grid-column: 1/2;
+}
+.skillset__title {
+  margin-bottom: 1.5rem;
+}
+.skillset__description {
+  font-size: 1rem;
+}
+.skillset__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column: 2/4;
+  gap: 3rem 4.5rem;
+}
+.skillset__item {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.skillset__item:hover {
+  transform: translate(-0.375rem, -0.5rem) scale(1.04);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+.skillset__item-image {
+  margin-bottom: 1.5rem;
+}
+.skillset__item-title {
+  margin-bottom: 0.75rem;
+}
+.skillset__item-description {
+  font-size: 1rem;
+}
+
 /*# sourceMappingURL=main.css.map */

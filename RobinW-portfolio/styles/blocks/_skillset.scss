@@ -1,0 +1,55 @@
+@use '../helpers/index' as *;
+
+.skillset {
+  padding: rem(120) rem(0);
+
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: rem(72);
+
+  }
+
+  &__text {
+    grid-column: 1/2;
+  }
+
+  &__title {
+    margin-bottom: rem(24);
+  }
+
+  &__description {
+    font-size: rem(16);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: 2/4;
+    gap: rem(48) rem(72);
+  }
+
+  &__item {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translate(rem(-6), rem(-8)) scale(1.04);
+      box-shadow: 0 rem(12) rem(24) rgba(0, 0, 0, 0.15);
+    }
+
+    &-image {
+      margin-bottom: rem(24);
+    }
+
+    &-title {
+      margin-bottom: rem(12);
+    }
+
+    &-description {
+      font-size: rem(16);
+    }
+  }
+
+}
