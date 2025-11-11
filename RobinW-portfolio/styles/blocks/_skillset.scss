@@ -3,12 +3,25 @@
 .skillset {
   padding: rem(120) rem(0);
 
+  @include mobile {
+    padding: rem(80) rem(0) rem(64) rem(0);
+  }
+
 
   &__body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: rem(72);
 
+
+    @include laptop {
+      grid-template-columns:1fr;
+      row-gap: rem(48);
+    }
+
+    @include mobile {
+      row-gap: rem(69);
+    }
   }
 
   &__text {
@@ -17,6 +30,10 @@
 
   &__title {
     margin-bottom: rem(24);
+
+    @include mobile {
+      margin-bottom: rem(16);
+    }
   }
 
   &__description {
@@ -28,6 +45,14 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column: 2/4;
     gap: rem(48) rem(72);
+
+    @include laptop {
+      grid-column: 1/2;
+    }
+
+    @include mobile {
+      grid-template-columns:1fr;
+    }
   }
 
   &__item {
