@@ -4,7 +4,7 @@
   --color-dark: #000000;
   --color-dark-light: #181823;
   --color-dark-grey: #5B6876;
-  --color-light-gray: #8491a0;
+  --color-light-gray: rgba(132, 145, 160, 100);
   /* Акцентные */
   --color-peach-accent: #FFF3E4;
   --color-violet-accent: #FBE4FF;
@@ -780,6 +780,85 @@ select * {
 }
 .brands__image {
   max-width: 100%;
+}
+
+.projects {
+  padding: 7.5rem 0rem 9.5625rem;
+}
+@media (width <= 90.06125rem) {
+  .projects {
+    padding: 5rem 0rem;
+  }
+}
+@media (width <= 48.06125rem) {
+  .projects {
+    padding: 4rem 0rem 4.375rem;
+  }
+}
+.projects__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5625rem;
+}
+@media (width <= 64.06125rem) {
+  .projects__list {
+    display: flex;
+    flex-direction: column;
+    max-width: 39rem;
+    row-gap: 3rem;
+    margin: 0 uato;
+  }
+}
+.projects__item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5625rem;
+  align-items: center;
+}
+.projects__subtitle {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.projects__btn {
+  align-self: center;
+  margin: auto 0;
+}
+.projects__button {
+  text-transform: uppercase;
+  border: 0.0625rem solid var(--button-purple);
+  background: transparent;
+  color: var(--color-light);
+  padding: 1.5rem 2rem;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease, color 0.4s ease;
+}
+.projects__button:hover {
+  background-color: var(--color-dark-light);
+  transform: scale(0.97);
+}
+.projects__button:active {
+  transform: scale(0.94);
+}
+.projects .project-card {
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+.projects .project-card:hover {
+  transform: scale(0.97);
+  opacity: 0.95;
+  transition: transform 1s ease;
+}
+.projects .project-card__image {
+  max-width: 100%;
+  width: 100%;
+}
+.projects .project-card__text {
+  background: var(--color-dark-light);
+  padding: 2.5rem 2rem;
+}
+.projects .project-card__title {
+  margin-bottom: 0.8125rem;
 }
 
 /*# sourceMappingURL=main.css.map */
