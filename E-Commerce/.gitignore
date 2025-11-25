@@ -1,0 +1,15 @@
+# === 📦 Node.js dependencies ===
+node_modules/
+
+# === 🧱 Сборка и временные файлы ===
+.sass-cache/
+*.css.map
+styles/main.min.css
+
+# === 🧠 IDE / редактор ===
+.idea/
+.vscode/
+
+# === 💾 Системные файлы ===
+.DS_Store
+Thumbs.db
