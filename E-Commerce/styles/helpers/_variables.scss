@@ -18,7 +18,7 @@
   --font-family: 'Sen', sans-serif;
 
   /* 📦 Контейнер */
-  --container-width: #{rem(1440)}; /* контентная ширина макета (1440 - 2×135px) */
+  --container-width: #{rem(1170)}; /* контентная ширина макета (1170 - 2×135px) */
   --container-padding-x: #{rem(135)}; /* внутренние отступы по бокам */
 
   /* ⚡ Анимации */
@@ -26,26 +26,28 @@
 
 }
 
-/* 💻 Laptop (≤ 1440px) */
-@include laptop {
-  :root {
-    --container-width: #{rem(1440)};
-    --container-padding-x: #{rem(80)};
-  }
-}
-
-/* 📱 Tablet (≤ 1024) */
-@include tablet {
+/*  desktop (≤ 1200px) */
+@include desktop {
   :root {
     --container-width: #{rem(1024)};
-    --container-padding-x: #{rem(40)};
+    --container-padding-x: #{rem(60)};
   }
 }
 
-/* 📲 Mobile (≤ 768px) */
-@include mobile {
+/*💻 laptop (≤ 1024)*/
+@include laptop {
+  :root {
+    --container-width: #{rem(768)};
+    --container-padding-x: #{rem(40)};
+  }
+
+}
+
+/* 📱 tablet(≤ 768) */
+@include tablet {
   :root {
     --container-width: 100%;
     --container-padding-x: #{rem(20)};
   }
 }
+

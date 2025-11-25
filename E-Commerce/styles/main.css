@@ -3,28 +3,28 @@
   /* 🅰️ Шрифты */
   --font-family: 'Sen', sans-serif;
   /* 📦 Контейнер */
-  --container-width: 90rem; /* контентная ширина макета (1440 - 2×135px) */
+  --container-width: 73.125rem; /* контентная ширина макета (1170 - 2×135px) */
   --container-padding-x: 8.4375rem; /* внутренние отступы по бокам */
   /* ⚡ Анимации */
   --transition-duration: 0.2s;
 }
 
-/* 💻 Laptop (≤ 1440px) */
-@media (width <= 90.06125rem) {
-  :root {
-    --container-width: 90rem;
-    --container-padding-x: 5rem;
-  }
-}
-/* 📱 Tablet (≤ 1024) */
-@media (width <= 64.06125rem) {
+/*  desktop (≤ 1200px) */
+@media (max-width: 1200px) {
   :root {
     --container-width: 64rem;
+    --container-padding-x: 3.75rem;
+  }
+}
+/*💻 laptop (≤ 1024)*/
+@media (max-width: 1024px) {
+  :root {
+    --container-width: 48rem;
     --container-padding-x: 2.5rem;
   }
 }
-/* 📲 Mobile (≤ 768px) */
-@media (width <= 48.06125rem) {
+/* 📱 tablet(≤ 768) */
+@media (max-width: 768px) {
   :root {
     --container-width: 100%;
     --container-padding-x: 1.25rem;
@@ -259,15 +259,18 @@ select * {
   overflow: hidden !important;
 }
 
-@media (width <= 48.06125rem) {
+@media (max-width: 576px) {
   .hidden-mobile {
     display: none !important;
   }
 }
 
-@media (width > 48.06125rem) {
+.visible-mobile {
+  display: none !important;
+}
+@media (max-width: 576px) {
   .visible-mobile {
-    display: none !important;
+    display: block !important;
   }
 }
 

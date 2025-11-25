@@ -54,17 +54,19 @@
   @include visually-hidden;
 }
 
-// 📱 Прячет элемент на мобильных экранах
+
+
+// 💻 Показывает элемент только на мобильных, скрывает на больших экранах
 .hidden-mobile {
   @include mobile {
     display: none !important;
   }
 }
 
-
-// 💻 Показывает элемент только на мобильных, скрывает на больших экранах
 .visible-mobile {
-  @include mobile-above {
-    display: none !important;
+  display: none !important;
+
+  @include mobile {
+    display: block !important;
   }
 }
