@@ -1,0 +1,51 @@
+// ================================
+// 🎨  DESIGN TOKENS (Root Variables)
+// ================================
+// Глобальные переменные проекта Robin.W:
+// • Цветовая палитра
+// • Типографика
+// • Размеры контейнера
+// • Транзишны и адаптивные точки
+// ================================
+
+@use 'functions' as *;
+@use 'media' as *;
+
+:root {
+
+
+  /* 🅰️ Шрифты */
+  --font-family: 'Sen', sans-serif;
+
+  /* 📦 Контейнер */
+  --container-width: #{rem(1440)}; /* контентная ширина макета (1440 - 2×135px) */
+  --container-padding-x: #{rem(135)}; /* внутренние отступы по бокам */
+
+  /* ⚡ Анимации */
+  --transition-duration: 0.2s;
+
+}
+
+/* 💻 Laptop (≤ 1440px) */
+@include laptop {
+  :root {
+    --container-width: #{rem(1440)};
+    --container-padding-x: #{rem(80)};
+  }
+}
+
+/* 📱 Tablet (≤ 1024) */
+@include tablet {
+  :root {
+    --container-width: #{rem(1024)};
+    --container-padding-x: #{rem(40)};
+  }
+}
+
+/* 📲 Mobile (≤ 768px) */
+@include mobile {
+  :root {
+    --container-width: 100%;
+    --container-padding-x: #{rem(20)};
+  }
+}

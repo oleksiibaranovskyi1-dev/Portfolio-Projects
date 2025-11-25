@@ -1,0 +1,111 @@
+// ================================
+// 🌐  GLOBAL MIXINS
+// ================================
+//
+// Этот файл содержит универсальные миксины проекта:
+// - типографика
+// - центровка
+// - скрытие/показ элементов
+// - поддержка доступности и анимаций
+//
+// ================================
+
+// Подключаем math и собственные функции (rem(), fluid(), и т.д.)
+@use 'sass:math';
+@use '../helpers/functions' as *;
+
+
+// 🌊 fluid-text($max, $min)
+// Делает размер текста адаптивным (резиновым) между $min и $max.
+// Использует функцию fluid() → возвращает clamp() с расчётом.
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
+
+// ⚡ transition($props, $duration, $timing)
+@mixin transition($props: all, $duration: var(--transition-duration), $timing: ease) {
+  transition: #{$props} #{$duration} #{$timing};
+}
+
+// 👻 hide / show
+// Управляют видимостью элемента.
+// hide — скрывает элемент полностью (в т.ч. от кликов)
+// show — делает элемент видимым снова.
+@mixin hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@mixin show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+// 🔘 reset-button
+// Сбрасывает дефолтные стили кнопки (border, padding, bg)
+// Полезно при кастомных кнопках.
+@mixin reset-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+// 🎯 flex-center($isInline)
+// Центрирует содержимое по центру (по осям X и Y).
+// $isInline: true → inline-flex; false → flex (по умолчанию)
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  justify-content: center;
+  align-items: center;
+}
+
+// 📍 abs-center
+// Абсолютно центрирует элемент внутри родителя.
+// Работает при position: relative у родителя.
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+// ⚙️ reduce-motion
+// Уменьшает или убирает анимации, если в системе включено
+// “предпочтение уменьшенного движения” (prefers-reduced-motion).
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+
+// ♿ visually-hidden
+// Полностью скрывает элемент визуально, но оставляет его доступным
+// для скринридеров (WCAG стандарт).
+// Используется для скрытых заголовков, подписи к кнопкам и т.п.
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}

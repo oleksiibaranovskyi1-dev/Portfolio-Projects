@@ -1,0 +1,70 @@
+@use '../helpers' as *;
+// ================================
+// 🧩  UTILITY CLASSES
+// ================================
+// Универсальные вспомогательные классы проекта:
+// - контейнер и выравнивания
+// - текстовые выравнивания
+// - флекс-центровка
+// - позиционирование
+// - доступность и адаптивность
+// ================================
+
+
+// 📦 Центрирует контент и ограничивает ширину
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+  width: 100%;
+}
+
+
+// 🔠 Текстовые выравнивания
+.text-center {
+  text-align: center !important; // по центру
+}
+
+.text-right {
+  text-align: right !important; // по правому краю
+}
+
+.text-left {
+  text-align: left !important; // по левому краю
+}
+// 🎯 Центрирование через flexbox
+.flex-center {
+  @include flex-center;
+}
+
+// 🩶 Абсолютное растяжение на весь контейнер
+.inset-0 {
+  inset: 0;
+  position: absolute;
+  // 🔸 Растягивает элемент по всему родителю.
+  // Комбинация position: absolute + inset: 0 =
+  // top: 0; right: 0; bottom: 0; left: 0;
+  // Используется для оверлеев, фонов, градиентов и псевдоэлементов,
+  // чтобы быстро занять всю площадь родителя.
+}
+
+
+// ♿ Прячет элемент визуально, но оставляет доступным для скринридеров
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// 📱 Прячет элемент на мобильных экранах
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+
+// 💻 Показывает элемент только на мобильных, скрывает на больших экранах
+.visible-mobile {
+  @include mobile-above {
+    display: none !important;
+  }
+}

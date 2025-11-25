@@ -1,0 +1,66 @@
+@use '../helpers' as *;
+// ================================
+// 🌍  GLOBAL STYLES
+// ================================
+// Базовые глобальные стили проекта Robin.W:
+// • типографика и цвета
+// • заголовки и отступы
+// • плавные переходы
+// • hover-анимации ссылок
+// • поддержка reduce motion
+// ================================
+
+
+// 🧠 Базовые стили документа
+
+body {
+  @include fluid-text(18, 16); // адаптивный размер текста
+  font-family: var(--font-family); // основной шрифт
+  color: var(--color-light-gray); // цвет текста
+  letter-spacing: 0;
+  line-height: 1.6;
+  background-color: var(--color-dark); // тёмный фон по макету
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased; // сглаживание шрифтов
+}
+
+
+// 🔠 Заголовки
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-light);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+// 📏 Размеры заголовков
+h1, .h1 {
+  @include fluid-text(78, 32); // hero
+}
+
+h2, .h2 {
+  @include fluid-text(55, 32); // секционные заголовки
+}
+
+h3, .h3 {
+  @include fluid-text(24, 18); // подзаголовки
+}
+
+// ⚡ Универсальные плавные переходы
+a,
+button,
+label,
+input,
+textarea,
+select
+* {
+  transition-duration: var(--transition-duration);
+}
+
+
+// ♿ Поддержка prefers-reduced-motion
+@include reduce-motion;
